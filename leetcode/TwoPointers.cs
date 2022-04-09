@@ -2,7 +2,6 @@
 {
     public class TwoPointers
     {
-        //Given an array, rotate the array to the right by k steps, where k is non-negative.
         public void Rotate(int[] nums, int k)
         {
             k %= nums.Length;
@@ -23,7 +22,6 @@
             }
         }
 
-        //Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
         public int[] SortedSquares(int[] nums)
         {
             if (nums.Length == 1)
@@ -77,6 +75,53 @@
 
                 return result;
             }
+        }
+
+        public void MoveZeroes(int[] nums)
+        {
+            var iter = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != 0)
+                {
+                    nums[iter] = nums[i];
+                    iter++;
+                }
+            }
+
+            for (int i = iter; i < nums.Length; i++)
+            {
+                nums[i] = 0;
+            }
+        }
+
+        public int[] TwoSum(int[] numbers, int target)
+        {
+            var leftPointer = 0;
+            var rightPointer = numbers.Length - 1;
+            int[] result = new int[2];
+
+            while (leftPointer < rightPointer)
+            {
+                int sum = numbers[leftPointer] + numbers[rightPointer];
+
+                if (sum == target)
+                {
+                    result[0] = leftPointer + 1;
+                    result[1] = rightPointer + 1;
+                    return result;
+                }
+                else if (sum > target)
+                {
+                    rightPointer--;
+                }
+                else
+                {
+                    leftPointer++;
+                }
+            }
+
+            return result;
         }
     }
 }
