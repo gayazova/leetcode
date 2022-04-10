@@ -4,14 +4,11 @@
     {
         public static void Main(string[] args)
         {
-            var nums = new int[] { 1, 2, 3, 4, 4, 9, 56, 90 };
+            var nums = new char[] { 'h', 'e', 'l', 'l' };
+            var str = "Let's take LeetCode contest";
             var tp = new TwoPointers();
-            var result = tp.TwoSum(nums, 8);
-            foreach (var item in result)
-            {
-                Console.Write($"{item} ");
-            }
-            Console.WriteLine("Errrren Yeageeeeer");
+            var result = tp.ReverseWords(str);
+            Console.WriteLine(result);
             Console.ReadKey();
         }
     }
