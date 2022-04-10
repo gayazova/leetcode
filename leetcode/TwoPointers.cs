@@ -1,4 +1,6 @@
-﻿namespace leetcode
+﻿using System.Text;
+
+namespace leetcode
 {
     public class TwoPointers
     {
@@ -122,6 +124,35 @@
             }
 
             return result;
+        }
+
+        public void ReverseString(char[] s)
+        {
+            var length = s.Length;
+            var midLength = length % 2 == 0 ? length / 2 : length / 2 + 1;
+            for (int i = 0; i < midLength; i++)
+            {
+                var val = s[i];
+                s[i] = s[length - 1 - i];
+                s[length - 1 - i] = val;
+            }
+        }
+
+        public string ReverseWords(string s)
+        {
+            var words = s.Split(' ');
+            var result = new List<string>();
+            foreach(var w in words)
+            {
+                var word = new StringBuilder();
+                for (int j = w.Length - 1; j >= 0; j--)
+                {
+                    word.Append(w[j]);
+                }
+                result.Add(word.ToString());
+            }
+
+            return string.Join(" ", result);
         }
     }
 }
