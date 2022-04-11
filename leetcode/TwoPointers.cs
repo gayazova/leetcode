@@ -154,5 +154,70 @@ namespace leetcode
 
             return string.Join(" ", result);
         }
+
+        public ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            if (head == null)
+                return null;
+            if (head.next == null && n == 1)
+                return null;
+
+            var link = head;
+            var length = 0;
+            while (link != null)
+            {
+                link = link.next;
+                length++;
+            }
+
+            var removePosition = length - n;
+            if (removePosition == 0)
+            {
+                head = head?.next;
+                return head;
+            }
+            link = head;
+            for (int i = 0; i < removePosition; i++)
+            {
+                if (i != removePosition - 1)
+                {
+                    link = link.next;
+                }
+                else
+                {
+                    var removedNext = link.next?.next;
+                    link.next = removedNext;
+                    return head;
+                }
+            }
+
+            return head;
+        }
+
+        public ListNode MiddleNode(ListNode head)
+        {
+            if (head == null)
+                return null;
+            if (head.next == null)
+                return head;
+            var length = 0;
+            var link = head;
+            while (link != null)
+            {
+                link = link.next;
+                length++;
+            }
+
+            var position = length / 2;
+            link = head;
+            for (int i = 0; i <= position; i++)
+            {
+                if (i == position)
+                    return link;
+                link = link.next;
+            }
+
+            return head;
+        }
     }
 }
