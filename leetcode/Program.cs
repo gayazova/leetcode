@@ -6,9 +6,8 @@ namespace leetcode
     {
         public static void Main(string[] args)
         {
-            var tws = new TotalWavinessSolution();
-            var countMe = tws.TotalWaviness(1234, 1234);
-            System.Console.WriteLine(countMe);
+            var result = new ProcessStrSolution_2().ProcessStr("%#bz%xum##i##vzo#pwc*#dkwbh####%uf%s*%cgppqhqa%h#l##o%ij%%cz%iga##e###u%#e####jfwx##%%*x%m*%#", 6523);
+            System.Console.WriteLine(result);
             Console.ReadKey();
         }
 
